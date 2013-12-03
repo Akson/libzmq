@@ -145,16 +145,20 @@
     <TargetName>libzmq</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetName>libzmq_d</TargetName>
+    <TargetName>libzmq$(PlatformArchitecture)$(Configuration)</TargetName>
+    <OutDir>$(ProjectDir)../../../bin/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetName>libzmq</TargetName>
+    <TargetName>libzmq$(PlatformArchitecture)$(Configuration)</TargetName>
+    <OutDir>$(ProjectDir)../../../bin/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='StaticDebug|Win32'">
-    <TargetName>libzmq_d</TargetName>
+    <TargetName>libzmq$(PlatformArchitecture)$(Configuration)</TargetName>
+    <OutDir>$(ProjectDir)../../../bin/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='StaticRelease|Win32'">
-    <TargetName>libzmq</TargetName>
+    <TargetName>libzmq$(PlatformArchitecture)$(Configuration)</TargetName>
+    <OutDir>$(ProjectDir)../../../bin/</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent>
@@ -162,6 +166,7 @@
     </PreBuildEvent>
     <Link>
       <AdditionalDependencies>Advapi32.lib;Ws2_32.lib;Rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(TargetDir)../bin/$(TargetName).lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -175,6 +180,7 @@
     </PreBuildEvent>
     <Link>
       <AdditionalDependencies>Advapi32.lib;Ws2_32.lib;Rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImportLibrary>$(TargetDir)../bin/$(TargetName).lib</ImportLibrary>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
